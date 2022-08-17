@@ -19,7 +19,7 @@ necesidades de desarrollo en redes.
 # Learned lessons
 In this project I learned about the use and implementation of the xmpp protocol using python. This protocol allows us to represent in a more visual way topics that we have seen in class
 
-# Implemented Features
+## :hammer: Implemented Features
 Account Management
 Register a new account on the server.
 Sign in with an account.
