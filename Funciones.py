@@ -96,42 +96,30 @@ class Cliente(xmpp.ClientXMPP):
                 show = 'chat'
                 if presencia['show']:
                     show = presencia['show']
-                print("     INFO:")
                 print('        ', show)
                 print('     Estado: ', presencia['status'])
 
-        def joinGroup(self, grupo, alias):
-            self.plugin['xep_0045'].join_muc(grupo, alias)
-            print("Ahorar perteneces al grupo\n")
 
-        def chatGroup(self, recipiente, mensaje):
-            try:
-                self.send_message(mto=recipiente, mbody=mensaje, mtype='groupchat')
-                print('Se envio el mensaje\n')
-            except IqError:
-                print('Error al enviar el mensaje')
-            except IqTimeout:
-                print('No hay respuesta del server')
             
        
         menu = True
         while menu:
-            opcion = await ainput("1. Chat\n2. Chat grupal\n3. Anadir Contacto\n4. Detalles de un contacto\n5. Mostrar todos los contactos\n6. Cambiar estado\n7. Eliminar cuenta\n8. Cerrar sesion")
+            opcion = input("1. Chat\n2. Chat grupal\n3. Anadir Contacto\n4. Detalles de un contacto\n5. Mostrar todos los contactos\n6. Cambiar estado\n7. Eliminar cuenta\n8. Cerrar sesion\n")
             if opcion == "1":
                 message()
 
             elif opcion == "2":
                 print("----------------------------------CHAT GRUPAL-------------------------------------")
-                sop = await ainput("1. Unirse a grupo\n2. Enviar mensaje\n")
+                sop = input("1. Unirse a grupo\n2. Enviar mensaje\n")
                 if(sop == "1"):
                     print()
-                    grupo = await ainput("Ingrese el nombre del grupo: ")
-                    alias = await ainput("Ingrese el alias: ")
-                    joinGroup(grupo,alias)
+                    grupo = input("Ingrese el nombre del grupo: ")
+                    alias = input("Ingrese el alias: ")
+                    self.joinGroup(grupo,alias)
                 if(sop== "2"):
-                    grupo = await ainput("Ingrese el nombre del grupo: ")
-                    mensaje = await ainput("Ingrese el mensaje: ")
-                    chatGroup(grupo,mensaje)
+                    grupo = input("Ingrese el nombre del grupo: ")
+                    mensaje = input("Ingrese el mensaje: ")
+                    self.chatGroup(grupo,mensaje)
 
 
             elif opcion == "3":
@@ -156,14 +144,27 @@ class Cliente(xmpp.ClientXMPP):
             await self.get_roster()
 
     def changedStatus(self, presencia):
-        print(presencia["from"] + "Cambio el estado a " + presencia["show"]+"\n")
+        print(str(presencia["from"]) + " Cambio el estado a " + str(presencia["show"])+"\n")
 
 
     def userOffline(self, presencia):
-        print(presencia["from"] + "Se desconecto\n")
+        print(str(presencia["from"]) + " Se desconecto\n")
 
     def userSubscribed(self, presencia):
-        print(presencia["from"] + "Te envio solicitud de amistad\n")
+        print(str(presencia["from"]) + " Te envio solicitud de amistad\n")
+
+    def joinGroup(self, grupo, alias):
+        self.plugin['xep_0045'].join_muc(grupo, alias)
+        print("Ahora perteneces al grupo\n")
+
+    def chatGroup(self, recipiente, mensaje):
+        try:
+            self.send_message(mto=recipiente, mbody=mensaje, mtype='groupchat')
+            print('Se envio el mensaje\n')
+        except IqError:
+            print('Error al enviar el mensaje')
+        except IqTimeout:
+            print('No hay respuesta del server')
         
     async def mensajes(self, mensaje):
         logging.info(mensaje)
@@ -209,7 +210,8 @@ class Cliente(xmpp.ClientXMPP):
 
         xmpp = Cliente(usuario, password)
         xmpp.register_plugin('xep_0030') 
-        xmpp.register_plugin('xep_0199') 
+        xmpp.register_plugin('xep_0199')
+        xmpp.register_plugin('xep_0045') 
 
         # Connect to the XMPP server and start processing XMPP stanzas.
         xmpp.connect(disable_starttls=True)
