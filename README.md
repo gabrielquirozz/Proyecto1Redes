@@ -20,7 +20,8 @@ necesidades de desarrollo en redes.
 In this project I learned about the use and implementation of the xmpp protocol using python. This protocol allows us to represent in a more visual way topics that we have seen in class
 
 ## :hammer: Implemented Features
-- `Account Management` 1- `Register a new account on the server`
+- `Account Management`
+- `Register a new account on the server`
 Register a new account on the server.
 Sign in with an account.
 Sign out with an account.
