@@ -22,18 +22,17 @@ In this project I learned about the use and implementation of the xmpp protocol 
 ## :hammer: Implemented Features
 - `Account Management`
 - `Register a new account on the server`
-Register a new account on the server.
-Sign in with an account.
-Sign out with an account.
-Delete server account.
-Communication
-Show all users/contacts and their status.
-Add a user to contacts.
-Show contact details of a user.
-1 to 1 communication with any user/contact.
-Participate in group conversations.
-Define presence message.
-Send/receive notifications.
+- `Sign in with an account`
+- `Sign out with an account`
+- `Delete server account`
+- `Communication`
+- `Show all users/contacts and their status`
+- `Add a user to contacts`
+- `Show contact details of a user`
+- `1 to 1 communication with any user/contact`
+- `Participate in group conversations`
+- `Define presence message`
+- `Send/receive notifications`
 
 
 # How to install / Use it
@@ -43,4 +42,4 @@ pip install xmpppy
 
 Run the client:
 
-python3 cliente.py
+python3 Client.py
