@@ -1,38 +1,17 @@
 # :telephone_receiver: Proyecto1Redes
 Antecedentes 
-La mensajería instantánea es una de las invenciones de nuestra época que han revolucionado la 
-forma  de  comunicación  persona  a  persona.  No  obstante,  muchos  servicios  requieren  el  uso  de 
-protocolos  privativos  que  limitan  y  obligan  al  usuario  a  usar  únicamente  las  aplicaciones 
-desarrolladas por el proveedor. 
-XMPP (eXtensible Messaging and Presence Protocol) es un protocolo abierto, con más de 10 años 
-de desarrollo, que permite la interconexión entre distintos proveedores de mensajería instantánea. 
-Éste provee tiene las características de manejar cifrado, ser descentralizado, poder extenderse, fácil 
-de escalar y ser totalmente comunitario. 
+Conociendo a dónde enviar los mensajes para cualquier router se vuelve trivial el envío de mensajes. 
+Únicamente es necesario conocer el destino final y se reenvía al vecino que puede proveer la mejor 
+ruta al destino. Toda esa información es almacenada en las tablas de enrutamiento. 
+No obstante, con el dinamismo con el que se espera que pueda funcionar el Internet es necesario 
+que dichas tablas puedan actualizarse y acomodarse a cambios en la infraestructura. Los algoritmos 
+con los que se actualizan estas tablas son conocidos como algoritmos de enrutamiento. 
 
 
 Objetivos 
-- Apegarse a los estándares de un protocolo conocido y abierto. 
-- Comprender  las  bases  de  programación  asíncrona  requeridas  para  apegarse  a  las 
-necesidades de desarrollo en redes. 
-
-
-# Learned lessons
-In this project I learned about the use and implementation of the xmpp protocol using python. This protocol allows us to represent in a more visual way topics that we have seen in class
-
-## :hammer: Implemented Features
-- `Account Management`
-- `Register a new account on the server`
-- `Sign in with an account`
-- `Sign out with an account`
-- `Delete server account`
-- `Communication`
-- `Show all users/contacts and their status`
-- `Add a user to contacts`
-- `Show contact details of a user`
-- `1 to 1 communication with any user/contact`
-- `Participate in group conversations`
-- `Define presence message`
-- `Send/receive notifications`
+- Conocer los algoritmos de enrutamiento utilizados en las implementaciones actuales de 
+  Internet. 
+- Comprender cómo funcionan las tablas de enrutamiento.
 
 
 # How to install / Use it
@@ -42,4 +21,4 @@ pip install xmpppy
 
 Run the client:
 
-python3 Client.py
+py main.py
